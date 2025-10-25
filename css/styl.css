@@ -1,0 +1,35 @@
+
+:root{--brand:#b30000;--white:#ffffff;--muted:#f5f5f5;--text:#222}
+*{box-sizing:border-box}
+body{font-family:Inter, Arial, sans-serif;margin:0;color:var(--text);background:var(--muted)}
+.container{max-width:1100px;margin:0 auto;padding:24px}
+.site-header{background:var(--white);border-bottom:1px solid #eee}
+.header-inner{display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img.logo{width:56px;height:56px;object-fit:contain}
+.brand-text h1{margin:0;font-size:18px;color:var(--brand)}
+.brand-text p{margin:0;font-size:13px;color:#666}
+.main-nav a{margin-left:18px;text-decoration:none;color:#333;font-weight:600}
+.main-nav a.active{color:var(--brand)}
+.hero{padding:40px 0;background:linear-gradient(90deg, var(--white), #fff)}
+.about-hero .lead{font-size:18px;color:#444;max-width:800px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.principles li{margin-bottom:12px}
+.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:18px}
+.service-card{background:var(--white);padding:18px;border:1px solid #eee;border-radius:6px;min-height:120px}
+.crypto-section{background:var(--white);padding:24px;border-top:6px solid var(--brand);margin-top:18px}
+.plans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:12px}
+.plan{background:#fff;padding:18px;border:1px solid #eee;border-radius:6px}
+.plan.highlight{border:2px solid var(--brand);box-shadow:0 6px 18px rgba(179,0,0,0.06)}
+.site-footer{background:#111;color:#fff;padding:28px 0;margin-top:30px}
+.site-footer a{color:#fff;text-decoration:none}
+.footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}
+.footer-grid h4{margin-top:0;color:#fff}
+.copyright{padding:12px 0;color:#ddd;font-size:13px;text-align:center}
+@media (max-width:900px){
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .plans-grid{grid-template-columns:1fr}
+  .two-col{grid-template-columns:1fr}
+  .main-nav{display:none}
+  .brand-text h1{font-size:16px}
+}

@@ -1,0 +1,166 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investments - World Bank</title>
+    <link rel="stylesheet" href="/globaltrust-bank/css/style.css">
+    <link rel="stylesheet" href="/globaltrust-bank/css/styl.css">
+    <script src="https://js.stripe.com/v3/">CardPayments</script>
+</head>
+<body>
+    <!--Header-->
+    <header>
+        <div class="logo">🌍 World Bank</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Accounts.html" class="active">Open Account</a></li>
+                <li><a href="International Transfers.html">International Transfers</a></li>
+                <li><a href="investments.html" class="active" style="color: yellow;">Investments</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html" class="btn">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--Hero Banner-->
+    <section class="hero small-hero">
+        <div class="hero-content">
+            <h1>Smart Investments for the Future</h1>
+            <p>Grow your wealth with crypto and global markets</p>
+        </div>
+    </section>
+    <!--Investment Plans-->
+    <section class="services">
+        <h2>Crypto Investment Plans</h2>
+        <div class="service-boxes">
+            <div class="box">
+                <h3>USDT(stablecoin)</h3>
+                <p>Earn steady returns by investing in stable USDT-backed savings.</p>
+                <button class="plan-btn">Invest Now</button>
+            </div>
+            <div class="box">
+                <h3>Bitcoin(BTC)</h3>
+                <p>Participate in long-term BTC growth with secure digital storage.</p>
+                <button class="plan-btn">Invest Now</button>
+            </div>
+            <div class="box">
+                <h3>Ethereum(ETH)</h3>
+                <p>Diversify with Ethereum, powering the blockchain ecosystem.</p>
+                <button class="plan-btn">Invest Now</button>
+            </div>
+            <div class="box">
+                <h3>Altcoin Basket</h3>
+                <p>Invest in a mix of top-performing altcoins for a higher growth potential.</p>
+                <button class="plan-btn">Invest Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!--Risk Disclaimer-->
+    <section class="about">
+        <h2>Investment Disclaimer</h2>
+    <p>Crypto investments carry risks due to market volatility. Always research and invest responsibly. World Bank 
+        provides secure access and professional guidance.
+    </p>
+    </section>
+    <!-- Investment & Crypto (merged) -->
+<section id="investment-crypto" class="crypto-section">
+  <div class="container">
+    <h3>Investment & Crypto Application</h3>
+    <p>Apply for an investment plan and crypto-enabled wallet. All crypto activity requires KYC.</p>
+
+    <form id="investmentForm">
+      <div>
+        <label for="invest_name">Full name</label>
+        <input id="invest_name" name="name" required />
+      </div>
+
+      <div>
+        <label for="invest_email">Email</label>
+        <input id="invest_email" name="email" type="email" required />
+      </div>
+
+      <div>
+        <label for="invest_plan">Choose plan</label>
+        <select id="invest_plan" name="plan" required>
+          <option value="starter">Starter (₦10,000)</option>
+          <option value="growth">Growth (₦100,000)</option>
+          <option value="pro">Pro (₦1,000,000)</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="invest_amount">Initial deposit (NGN)</label>
+        <input id="invest_amount" name="amount" type="number" min="1" required />
+      </div>
+
+      <div>
+        <label for="invest_note">Notes (optional)</label>
+        <textarea id="invest_note" name="note"></textarea>
+      </div>
+
+      <button type="submit" id="investmentSubmit">Apply</button>
+    </form>
+
+    <hr/>
+
+    <h4>Investment Applications History</h4>
+    <div id="investmentList"></div>
+
+  </div>
+</section>
+
+<!-- Transfer section: internal transfer or card -->
+<section id="transfer-section" class="crypto-section">
+  <div class="container">
+    <h3>Transfer Funds</h3>
+
+    <!-- Internal transfer (email) -->
+    <form id="internalTransferForm">
+      <h4>Transfer to another user</h4>
+      <div>
+        <label for="t_recipient">Recipient Email</label>
+        <input id="t_recipient" name="recipientEmail" type="email" required />
+      </div>
+      <div>
+        <label for="t_amount">Amount (NGN)</label>
+        <input id="t_amount" name="amount" type="number" min="1" required />
+      </div>
+      <button type="submit">Send Transfer</button>
+    </form>
+
+    <hr/>
+
+    <!-- Card transfer (Stripe recommended) -->
+    <div id="cardTransfer">
+      <h4>Pay with Card (Visa/Mastercard)</h4>
+      <p>Payments are processed securely by Stripe. Enter payment details below.</p>
+      <div id="card-element"><!-- Stripe Elements mount point --></div>
+      <button id="cardPayBtn">Pay with Card</button>
+      <div id="card-result" role="status"></div>
+    </div>
+
+    <hr/>
+
+    <!-- fill remaining two containers you mentioned -->
+    <div class="extra-blocks" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px;">
+      <div id="extraOne" class="card">
+        <h4>Account Limits</h4>
+        <p>Daily transfer limit and KYC level information will appear here.</p>
+      </div>
+      <div id="extraTwo" class="card">
+        <h4>Recent Transactions</h4>
+        <div id="recentTransactions">No recent transactions.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+    <!--Footer-->
+    <footer>
+        <p>@2025 World Bank. All rights reserved</p>
+    </footer>
+</body>
+</html>

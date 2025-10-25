@@ -1,0 +1,157 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>International Transfers - World Bank</title>
+    <link rel="stylesheet" href="/globaltrust-bank/css/style.css">
+</head>
+<body>
+
+    <!--===NAVBAR===-->
+    <header class="navbar">
+        <div class="logo">🌍 World Bank</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Accounts.html">Open Account</a></li>
+                <li><a href="International Transfers.html" class="active" style="color: yellow;">Transfers</a></li>
+                <li><a href="Transfers.html">Transfers</a></li>
+                <li><a href="investments.html">Investments</a></li>
+                <li><a href="crypto.html">Crypto Banking</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--===MAIN SECTION===-->
+    <section class="transfer-section">
+        <h1>International Transfers</h1>
+        <p class="subtitle">Send money worldwide in minutes - safe, fast, and secure.</p>
+
+        <div class="transfer-container">
+            <!--===Transfer Form===-->
+            <form id="transferForm" class="transfer-form">
+                <h2>Send Money</h2>
+                <label>Sender Account Number</label>
+                <input type="text" placeholder="Enter your account number " required>
+                <label>Recipient Full Name</label>
+                <input type="text" placeholder="Recipient name" required>
+                <label>Recipient Bank</label>
+                <input type="text" placeholder="e.g HSBC, Chase" required>
+                <label>Recipient Country</label>
+                <select required>
+                    <option value="">Select Country</option>
+                    <option>United States</option>
+                    <option>United Kingdom</option>
+                    <option>Canada</option>
+                    <option>Nigeria</option>
+                    <option>India</option>
+                    <option>Germany</option>
+                    <option>China</option>
+                    <option>South Africa</option>
+                </select>
+                <label>Currency</label>
+                <select required>
+                    <option value="">Select Currency</option>
+                    <option value="usd">USD - US Dollar</option>
+                    <option value="eur">EUR - Euro</option>
+                    <option value="gbp">GBP - Pound Sterling</option>
+                    <option value="ngn">NGN - Naira</option>
+                    <option value="inr">INR - Indian Rupee</option>
+                    <option value="btc">BTC - Bitcoin</option>
+                    <option value="usdt">USDT - Tether</option>
+                </select>
+                <label>Amount</label>
+                <input type="number" placeholder="Enter amount" required>
+                <label>Transfer Description</label>
+                <textarea placeholder="Purpose for transfer (optional)"></textarea>
+                <button type="submit">Initiate Transfer</button>
+            </form>
+            <!--===Info & Rates===-->
+            <div class="transfer-info">
+                <h3>Current Exchange Rate & Fees</h3>
+                <p>Estimated rates are based on today's market values.</p>
+                <ul>
+                    <li><strong>USD - EUR:</strong>1 USD = 0.91 EUR</li>
+                    <li><strong>USD - GBP:</strong>1 USD = 0.78 GBP</li>
+                    <li><strong>USD - NGN:</strong>1 USD = 1560 NGN</li>
+                    <li><strong>BTC/USDT rates: </strong>update every 15 minutes.</li>
+                </ul>
+
+                <div class="security-box">
+                    <h3>Secure Transfer</h3>
+                <p>All international transactions are encrypted and verified under the World SecurePay Network(GSN).
+                    All payments are protected by end-to-end encryption and two-factor authentication under the 
+                    World SecurePay Network (GSN).
+                    Your data and funds are always protected.
+                </p>
+                </div>
+            </div>
+        </div>
+        <!--===Transaction History===-->
+        <div class="history">
+            <h2>Recent Transfers</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Recipient</th>
+                        <th>Country</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="historyTable">
+                    <tr>
+                        <td>2025-10-01</td>
+                        <td>Celina Cal</td>
+                        <td>UK</td>
+                        <td>$2,000</td>
+                        <td class="success">Completed</td>
+                    </tr>
+                    <tr>
+                        <td>2025-09-28</td>
+                        <td>Pamela SK</td>
+                        <td>America</td>
+                        <td>$500</td>
+                        <td class="pending">Pending</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!--===TRANSFER SUCCESS POPUP===-->
+    <div class="popup" id="transferPopup">
+        <div class="popup-content">
+            <h3>Transfer Successful</h3>
+            <p>Your international transfer request has been successfully recorded.</p>
+            <p>Processing may take 1-3 business days depending on destination bank.</p>
+            <button onclick="closeTransferPopup()">OK</button>
+        </div>
+    </div>
+
+    <!--===JS===-->
+    <script>
+        const transferForm = document.getElementById("transferForm");
+        const transferPopup = document.getElementById("transferPopup");
+        const historyTable = document.getElementById("historyTable");
+
+        transferForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const amount = transferForm.querySelector('input[type="number"]').value;
+            const name = transferForm.querySelector('input[placeholder="Recipient name"]').value;
+            const country = transferForm.querySelector("select").value;
+        })
+        transferForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            transferPopup.style.display = "flex";
+            transferForm.reset();
+        });
+
+        function closeTransferPopup() {
+            transferPopup.style.display = "none";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crypto Banking | World Bank</title>
+    <link rel="stylesheet" href="/globaltrust-bank/css/style.css">
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        background: #f3f6fa;
+        color: #333;
+      }
+
+      header {
+        background: #003366;
+        color: white;
+        padding: 1.2rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      .dashboard {
+        max-width: 900px;
+        margin: 2rem auto;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+      }
+
+      .price-cards {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin-top: 1rem;
+      }
+
+      .card {
+        background: #ffffff;
+        border: 1px solid #ccc;
+        border-radius: 12px;
+        padding: 1rem;
+        width: 28%;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease;
+      }
+
+      .card:hover {
+        transform: scale(1.05);
+      }
+
+      .card h3 {
+        color: #003366;
+        margin-bottom: 0.5rem;
+      }
+
+      .card p {
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: #009933;
+      }
+
+      .wallet-balance {
+        background: #003366;
+        color: white;
+        border-radius: 12px;
+        padding: 1.5rem;
+        text-align: center;
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .actions {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 2rem;
+      }
+
+      button {
+        background: #0066cc;
+        color: white;
+        border: none;
+        padding: 0.8rem 1.5rem;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: 0.3s;
+      }
+
+      button:hover {
+        background: #004080;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 1rem;
+      }
+
+      th,
+      td {
+        padding: 0.8rem;
+        border-bottom: 1px solid #ddd;
+        text-align: center;
+      }
+
+      th {
+        background: #003366;
+        color: white;
+      }
+
+      .popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        justify-content: center;
+        align-items: center;
+      }
+
+      .popup-content {
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        width: 90%;
+        max-width: 400px;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        position: relative;
+      }
+
+      .popup-content h2 {
+        color: #003366;
+      }
+
+      .popup-content input {
+        width: 90%;
+        padding: 0.7rem;
+        margin-top: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+      }
+
+      .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #333;
+      }
+
+      footer {
+        text-align: center;
+        background: #003366;
+        color: white;
+        padding: 1rem;
+        margin-top: 3rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="navbar">
+        <div class="logo">🌍 World Bank</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Accounts.html">Open Account</a></li>
+                <li><a href="International Transfers.html">Transfers</a></li>
+                <li><a href="investments.html">Investments</a></li>
+                <li><a href="crypto.html" class="active" style="color: yellow;">Crypto Banking</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="dashboard">
+      <div class="crypto-prices">
+        <h2>Live Crypto Prices</h2>
+        <div class="price-cards">
+          <div class="card" id="btcCard">
+            <h3>Bitcoin (BTC)</h3>
+            <p id="btcPrice">Loading...</p>
+          </div>
+          <div class="card" id="ethCard">
+            <h3>Ethereum (ETH)</h3>
+            <p id="ethPrice">Loading...</p>
+          </div>
+          <div class="card" id="usdtCard">
+            <h3>Tether (USDT)</h3>
+            <p id="usdtPrice">Loading...</p>
+          </div>
+        </div>
+      </div>
+      <div class="wallet-balance">
+        <h2>Wallet Balance:</h2>
+        <p id="walletBalance">₦0.00</p>
+      </div>
+
+      <div class="actions">
+        <button onclick="openPopup('buyPopup')">Buy Crypto</button>
+        <button onclick="openPopup('sellPopup')">Sell Crypto</button>
+        <button onclick="openPopup('withdrawPopup')">Withdraw</button>
+        <button onclick="openPopup('investPopup')">Invest</button>
+      </div>
+
+      <h3>Recent Transactions</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Date/Time</th>
+            <th>Action</th>
+            <th>Amount</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="txTable"></tbody>
+      </table>
+    </div>
+
+    <footer>&copy; 2025 Globus Trust Bank | Secure Crypto Investments</footer>
+
+    <!-- POPUPS -->
+    <div class="popup" id="buyPopup">
+      <div class="popup-content">
+        <span class="close-btn" onclick="closePopup('buyPopup')">&times;</span>
+        <h2>Buy Crypto</h2>
+        <input type="number" id="buyAmount" placeholder="Enter amount (₦)" />
+        <button onclick="confirmTrade('buy')">Confirm Buy</button>
+      </div>
+    </div>
+
+    <div class="popup" id="sellPopup">
+      <div class="popup-content">
+        <span class="close-btn" onclick="closePopup('sellPopup')">&times;</span>
+        <h2>Sell Crypto</h2>
+        <input type="number" id="sellAmount" placeholder="Enter amount (₦)" />
+        <button onclick="confirmTrade('sell')">Confirm Sell</button>
+      </div>
+    </div>
+
+    <div class="popup" id="withdrawPopup">
+      <div class="popup-content">
+        <span class="close-btn" onclick="closePopup('withdrawPopup')"
+          >&times;</span
+        >
+        <h2>Withdraw Funds</h2>
+        <input
+          type="number"
+          id="withdrawAmount"
+          placeholder="Enter amount (₦)"
+        />
+        <button onclick="confirmTrade('withdraw')">Confirm Withdraw</button>
+      </div>
+    </div>
+
+    <div class="popup" id="investPopup">
+      <div class="popup-content">
+        <span class="close-btn" onclick="closePopup('investPopup')"
+          >&times;</span
+        >
+        <h2>Invest in Crypto Plan</h2>
+        <input
+          type="number"
+          id="investAmount"
+          placeholder="Enter investment (₦)"
+        />
+        <button onclick="confirmTrade('invest')">Confirm Investment</button>
+      </div>
+    </div>
+
+    <script src="crypto.js"></script>
+  </body>
+</html>

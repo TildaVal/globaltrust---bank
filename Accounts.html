@@ -1,0 +1,83 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Account - World Bank</title>
+    <link rel="stylesheet" href="/globaltrust-bank/css/style.css">
+</head>
+<body>
+    <!--Header-->
+    <header>
+        <div class="logo">🌍 World Bank</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Accounts.html" class="active" style="color: yellow;">Open Account</a></li>
+                <li><a href="International Transfers.html">International Transfers</a></li>
+                <li><a href="investments.html">Investments</a></li>
+                <li><a href="crypto.html">Crypto Banking</a></li>
+                <li><a href="login.html" class="btn">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--Hero Banner-->
+    <section class="hero small-hero">
+        <div class="hero-content">
+            <h1>Open a World Account</h1>
+            <p>Join World Bank and start banking internationally today</p>
+        </div>
+    </section>
+
+    <!--Account Opening Form-->
+    <section class="contact">
+        <h2>Account Opening Form</h2>
+        <form id="Accountform">
+            <input type="text" placeholder="Full Name" required>
+            <input type="email" placeholder="Email Address" required>
+            <input type="tel" placeholder="Phone Number" required>
+            <select required>
+                <option value="">Select Account Type</option>
+                <option value="personal">Personal Account</option>
+                <option value="business">Business Account</option>
+                <option value="savings">Savings Account</option>
+                <option value="crypto">Crypto Account</option>
+                <input type="text" placeholder="Country of Residence" required>
+                <input type="text" placeholder="Preferred Currency (USD, EUR, GBP, etc.)" required>
+                <textarea placeholder="Additional Notes or Request (optional)"></textarea>
+                <button type="submit">Submit Application</button>
+            </select>
+        </form>
+    </section>
+
+    <!--Confirmation Popup(Optional)-->
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <h3>Application Submitted</h3>
+            <p>Thank you for choosing World Bank. Our representative will contact you shortly.</p>
+            <button onclick="closePopup()">Close</button>
+        </div>
+    </div>
+
+    <!--Footer-->
+    <footer>
+        <p>@2025 World Bank. All rights reserved.</p>
+    </footer>
+
+    <!--Script-->
+    <script>
+        const form = document.getElementById("accountForm");
+        const popup = document.getElementById("popup");
+
+        form.addEventListener("submit", function(e) {
+            e.preventDefault();
+            popup.style.display = "flex";
+            form.reset();
+        });
+
+        function closePopup() {
+            popup.style.display = "none";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard | GlobalTrust</title>
+  <link rel="stylesheet" href="/globaltrust-bank/css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Welcome to GlobalTrust</h1>
+  </header>
+
+  <section class="dashboard">
+    <h2>Account Summary</h2>
+    <div id="balance">Loading...</div>
+
+    <h2>Currency Converter</h2>
+    <form id="convertForm">
+      <input type="number" name="amount" placeholder="Amount" required />
+      <select name="from">
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="NGN">NGN</option>
+      </select>
+      <select name="to">
+        <option value="EUR">EUR</option>
+        <option value="USD">USD</option>
+        <option value="NGN">NGN</option>
+      </select>
+      <button type="submit">Convert</button>
+    </form>
+    <p id="conversionResult"></p>
+
+    <h2>International Transfer</h2>
+    <form id="transferForm">
+      <input type="text" name="recipient" placeholder="Recipient Name" required />
+      <input type="number" name="amountUSD" placeholder="Amount in USD" required />
+      <select name="currency">
+        <option value="EUR">EUR</option>
+        <option value="GBP">GBP</option>
+        <option value="NGN">NGN</option>
+      </select>
+      <button type="submit">Send</button>
+    </form>
+    <p id="transferMessage"></p>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

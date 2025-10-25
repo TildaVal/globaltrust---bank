@@ -1,0 +1,534 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+  text-decoration: none;
+}
+body {
+  color: #333;
+  line-height: 1.6;
+}
+header {
+  background: #0a3d62;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 10%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+nav ul li a:hover {
+  color: #f1c40f;
+}
+.btn {
+  background: #f1c40f;
+  color: #0a3d62;
+  padding: 8px 15px;
+  font-weight: bold;
+  text-decoration: none;
+}
+.hero {
+  background: url(/assets/images/bank.jpg) center/ cover no-repeat;
+  color: #0d7fcf;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.hero h1 {
+  font-size: 3em;
+  margin-bottom: 15px;
+}
+/*services*/
+.services {
+  padding: 60px 10%;
+  background: #f9f9f9;
+  text-align: center;
+}
+.services h2 {
+  margin-bottom: 30px;
+  font-size: 2em;
+}
+.services-boxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+.box {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+/*about*/
+.about {
+  padding: 60px 10%;
+  text-align: center;
+  background: #fff;
+}
+/*contact*/
+.contact {
+  padding: 60px 10%;
+  background: #0a3d62;
+  color: #fff;
+  text-align: center;
+}
+.contact form {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.contact input,
+.contact textarea {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+.contact button {
+  background: #f1c40f;
+  color: #0a3d62;
+  padding: 10px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.contact button:hover {
+  opacity: 0.9;
+}
+/*footer*/
+footer {
+  background: #062743;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+}
+.auth-body {
+  background: linear-gradient(to right, #0a3d62, #1e6091);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.auth-container {
+  background: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+.auth-container h2 {
+  margin-bottom: 20px;
+  color: #0a3d62;
+}
+.auth-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.auth-container input {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1em;
+}
+.auth-container button {
+  background: #f1c40f;
+  color: #0a3d62;
+  padding: 12px;
+  border: none;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.auth-container button:hover {
+  background: #e1b200;
+}
+.auth-link {
+  margin-top: 10px;
+  font-size: 0.9em;
+}
+.auth-link a {
+  color: #0a3d62;
+  text-decoration: none;
+  font-weight: bold;
+}
+.auth-link a:hover {
+  text-decoration: underline;
+}
+/*Small Hero for Sub pages*/
+.small-hero {
+  height: 40vh;
+  background: url("https://images.unsplash.com/photo-1641971162350-5c807ed17f3a")
+    center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+.plan-btn {
+  margin-top: 15px;
+  background: #0a3d62;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.plan-btn:hover {
+  background: #f1c404;
+  color: #0a3d62;
+}
+/*Account Form Page */
+.contact select {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+}
+/*Popup confirmation */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+}
+.popup-content {
+  background: #fff;
+  color: #333;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 400px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.popup-content h3 {
+  color: #0a3d62;
+  margin-bottom: 15px;
+}
+.popup-content button {
+  background: #f1c40f;
+  color: #0a3d62;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.popup-content button:hover {
+  background: #e1b200;
+}
+/* Forgot password Link*/
+.forgot-link {
+  color: #0a3d62;
+  font-size: 0.9em;
+  text-decoration: none;
+}
+.forgot-link:hover {
+  text-decoration: underline;
+}
+/*Popup container - hidden by default*/
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* dark transparent overlay */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+/* Popup content box */
+.popup-content {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  animation: popupFade 0.3s ease;
+}
+
+/* Animation for smooth popups */
+.popup-content {
+  background: #0a3d62;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.popup-content button:hover {
+  background: #074173;
+}
+/*for the forgot password form inside popup */
+.popup-content form input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.popup-content form button {
+  margin-top: 10px;
+  width: 100%;
+}
+/* Transfer Page */
+.transfer-section {
+  padding: 80px 10%;
+  background: #f4f7fb;
+  min-height: 100vh;
+}
+.transfer-section h1 {
+  color: #0a3d62;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.subtitle {
+  text-align: center;
+  color: #555;
+  margin-bottom: 40px;
+}
+.transfer-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+#transferForm {
+  flex: 1;
+  min-width: 300px;
+  max-width: 450px;
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+#transferForm input,
+#transferForm select,
+#transferForm textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+#transferForm button {
+  margin-top: 20px;
+  width: 100%;
+  background: #0a3d62;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+#transferForm button:hover {
+  background: #0a3d62;
+}
+.transfer-info {
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.transfer-info h3 {
+  color: #0a3d62;
+  margin-top: 0;
+}
+.transfer-info ul {
+  list-style: none;
+  padding-left: 0;
+}
+.transfer-info ul li {
+  margin-bottom: 8px;
+}
+.wallet-dashboard {
+  background: #f9fafc;
+  padding: 50px 20px;
+  text-align: center;
+  border-radius: 16px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin: 40px auto;
+  width: 90%;
+  max-width: 1000px;
+}
+
+.wallet-header h2 {
+  color: #004080;
+  font-size: 2em;
+}
+
+.wallet-header p {
+  color: #666;
+  font-size: 1em;
+  margin-bottom: 30px;
+}
+
+.wallet-balance {
+  background: #004080;
+  color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+
+.wallet-actions {
+  margin-bottom: 40px;
+}
+
+.wallet-btn {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  margin: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.wallet-btn:hover {
+  background: #0056b3;
+}
+
+.transaction-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.transaction-table th,
+.transaction-table td {
+  padding: 12px;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+}
+
+.transaction-table th {
+  background: #004080;
+  color: #fff;
+}
+
+/* ====== Popup Modal Styling ====== */
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px;
+  width: 350px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.popup-content h3 {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.popup-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/*.popup-content input,
+.popup-content select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}*/
+
+.popup-content button {
+  margin-top: 15px;
+  width: 100%;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.popup-content button:hover {
+  background-color: #0056b3;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  /*float: right;
+  font-size: 22px;
+  cursor: pointer;
+  color: #888;*/
+}
+
+.close:hover {
+  color: #000;
+}
+
+@keyframes popupFade {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

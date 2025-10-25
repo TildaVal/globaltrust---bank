@@ -1,0 +1,49 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign up - World Bank</title>
+    <link rel="stylesheet" href="/globaltrust-bank/css/style.css" />
+  </head>
+  <body class="auth-body">
+    <div class="auth-container">
+      <h2>Create a New Account</h2>
+      <form id="signupForm">
+        <input type="text" placeholder="First Name" required />
+        <input type="text" placeholder="Last Name" required />
+        <input type="email" placeholder="Email Address" required />
+        <input type="password" placeholder="Password" required />
+        <input type="password" placeholder="Confirm Password" required />
+        <button type="submit">Sign Up</button>
+        <p class="auth-link">
+          Already have an account? <a href="login.html">Login</a>
+        </p>
+      </form>
+    </div>
+
+    <!--Success Popup-->
+    <div class="popup" id="popup">
+      <div class="popup-content">
+        <h3>Account created Successfully</h3>
+        <p>You can now login to your World account</p>
+        <button onclick="closePopup()">Go to Login</button>
+      </div>
+    </div>
+
+    <script>
+      const signupForm = document.getElementById("signupForm");
+      const popup = document.getElementById("popup");
+
+      signupForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        popup.style.display = "flex";
+        signupForm.reset();
+      });
+
+      function closePopup() {
+        popup.style.display = "none";
+        window.location.href = "login.html"; //redirect to login page
+      }
+    </script>
+  </body>
+</html>

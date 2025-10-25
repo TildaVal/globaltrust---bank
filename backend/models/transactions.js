@@ -1,0 +1,1 @@
+GET / api / transactions / recent;

@@ -1,0 +1,193 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transfers Bank</title>
+    <link rel="stylesheet" href="/globaltrust-bank/css/style.css">
+    <style>
+        .transfer-hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,00.5)), url('images/transfers-bg.jpg') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        .transfer-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        .transfer-hero p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .transfer-section {
+            background: #f9f9f9;
+            padding: 50px 20px;
+        }
+        .transfer-container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        .transfer-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #003366;
+        }
+        form label {
+            display: block;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+        form input, form select {
+            width: 100%;
+            padding: 10px0;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        form button {
+            margin-top: 25px;
+            width: 100%;
+            background: #003366;
+            color: white;
+            font-size: 1.1rem;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        form button:hover {
+            background: #0055a5;
+        }
+        .security-note {
+            text-align: center;
+            margin-top: 25px;
+            color: #555;
+            font-size: 0.9rem;
+        }
+        .trust-section {
+            text-align: center;
+            padding: 40px 20px;
+            background: #eef4f9;
+        }
+        .trust-section h3 {
+            color: #003366;
+            margin-bottom: 15px;
+        }
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .trust-badges img {
+            width: 120px;
+            opacity: 0.8;
+        }
+        footer {
+            text-align: center;
+            background: #003366;
+            color: white;
+            padding: 15px 0;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!--Header-->
+    <header>
+        <nav class="navbar">
+            <div class="logo">World Bank</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="investments.html">Investments</a></li>
+                <li><a href="Transfers.html" class="active">Transfers</a></li>
+                <li><a href="Accounts.html">Open Account</a></li>
+                <li><a href="login.html" class="btn">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--Hero Section-->
+    <section class="transfer-hero">
+        <h1>Secure InternationalTransfers</h1>
+        <p>Send money to any country safely and instantly. Enjoy low fees, high security, and feel real-time tracking.</p>
+    </section>
+
+    <!--Transfer Form Section-->
+    <section class="transfer-section">
+        <div class="transfer-container">
+            <h2>Make an International Transfer</h2>
+            <form id="transferForm">
+                <label for="senderName">Full Name</label>
+                <input type="text" id="senderName" required placeholder="Enter your full Name">
+                <label for="accountNumber">Account Number</label>
+                <input type="text" id="accountNumber" required placeholder="Enter your bank account number">
+                <label for=" recipientBank">Recipient Bank</label>
+                <input type="text" id="recipientBank" required placeholder="e.g., Barclays UK">
+                <label for="recipientAccount">Recipient Account Number / 9785</label>
+                <input type="text" id="recipientAccount" required placeholder="Enter recipient account or 9785">
+                <label for="country">Destination Country</label>
+                <select id="country" required>
+                    <option value="">Select Country</option>
+                    <option>United States</option>
+                    <option>united Kingdom</option>
+                    <option>Nigeria</option>
+                    <option>Germany</option>
+                    <option>Canada</option>
+                    <option>Australia</option>
+                    <option>Other</option>
+                </select>
+                <label for="currency">Currency</label>
+                <select id="currency" required>
+                    <option value="">Select Currency</option>
+                    <option>USD</option>
+                    <option>GBP</option>
+                    <option>EUR</option>
+                    <option>NGN</option>
+                    <option>AUD</option>
+                </select>
+                <label for="amount">Amount</label>
+                <input type="number" id="amount" required placeholder="Enter amount to transfer">
+                <label for="purpose">Purpose of Transfer</label>
+                <input type="text" id="purpose" placeholder="e.g., Family Support, Business Payment">
+                <button type="submit">Submit Transfer</button>
+                <p class="security-note">All transfers are encrypted and processed under compliance with
+                    international banking standards.
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <!--Trust Section-->
+    <section class="trust-section">
+        <h3>Trusted World wide</h3>
+        <div class="trust-badges">
+            <img src="images/visa-mastercard.png" alt="Visa and Mastercard">
+            <img src="images/encryption.png" alt="Data Encryption">
+            <img src="images/iso-certified.png" alt="ISO Certified">
+        </div>
+    </section>
+
+    <!--Footer-->
+    <footer>
+        &copy; 2025 World Bank. All Rights Reserved.
+    </footer>
+
+    <!--Simple JS Validation-->
+    <script>
+        const form = document.getElementById(transferForm);
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            alert("Your transfer request has been securely submitted. You will receive a confirmation email shortly.");
+            form.reset();
+        });
+    </script>
+</body>
+</html>
