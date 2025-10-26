@@ -1,19 +1,19 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import mongoose from "mongoose";
+dotenv.config();
+console.log(
+  "Stripe key:",
+  process.env.STRIPE_SECRET_KEY ? "Loaded ✅" : "Missing ❌"
+);
 
 import { connectDB } from "./config/db.js";
 
-// Import routes
-import authRoutes from "./routes/authRoutes.js";
-import walletRoutes from "./routes/walletRoutes.js";
-import paymentsRoutes from "./routes/paymentsRoutes.js";
-import investmentsRoutes from "./routes/InvestmentRoutes.js";
+import Stripe from "stripe";
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-// Load env vars
-dotenv.config();
-
+// Database connection
+connectDB();
 // Initialize app BEFORE using it
 const app = express();
 
@@ -21,14 +21,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Database connection
-connectDB();
-
-// Routes
-app.use("/api/auth", authRoutes);
-app.use("/api/wallet", walletRoutes);
-app.use("/api/payments", paymentsRoutes);
-app.use("/api/investments", investmentsRoutes);
+// Import routes
+import authRoutes from "./routes/authRoutes.js";
+import walletRoutes from "./routes/walletRoutes.js";
+import paymentsRoutes from "./routes/paymentsRoutes.js";
+import investmentsRoutes from "./routes/InvestmentRoutes.js";
 
 // Root route
 app.get("/", (req, res) => {
@@ -39,6 +36,13 @@ app.get("/api/health", (req, res) => {
   res.json({ success: true, message: "Metrone Bank API running smoothly 🚀" });
 });
 
+// Routes
+app.use("/api/auth", authRoutes);
+app.use("/api/wallet", walletRoutes);
+app.use("/api/payments", paymentsRoutes);
+app.use("/api/investments", investmentsRoutes);
+
 // Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
+
